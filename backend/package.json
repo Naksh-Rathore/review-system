@@ -1,0 +1,28 @@
+{
+  "name": "review-system-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naksh-Rathore/review-system-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Naksh-Rathore/review-system-backend/issues"
+  },
+  "homepage": "https://github.com/Naksh-Rathore/review-system-backend#readme",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "mongoose": "^8.13.2"
+  }
+}
