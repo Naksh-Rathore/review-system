@@ -1,6 +1,6 @@
 import axios from "axios"
 
-async function getReviews(url) {
+export async function getReviews(url) {
     try {
         const response = await axios.get(url)
 
@@ -15,5 +15,3 @@ async function getReviews(url) {
         throw new Error(`Could not fetch data: ${error}`)
     }
 }
-
-export default getReviews

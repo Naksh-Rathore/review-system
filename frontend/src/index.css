@@ -1,0 +1,17 @@
+body {
+  font-family: sans-serif, Arial;
+  background-color: hsl(0, 0%, 20%);
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  border-radius: 10px; 
+  text-align: center;
+  padding: 25px;
+  height: 550px;
+  width: 800px;
+}
