@@ -16,12 +16,6 @@ const ReviewSchema = mongoose.Schema(
             type: Number,
             required: [true, "Please enter rating"]
         },
-
-        // Business that was reviewed
-        business: {
-            type: String,
-            required: [true, "Please enter business"]
-        }
     },
 
     {
