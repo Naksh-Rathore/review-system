@@ -7,11 +7,8 @@ body {
   height: 100vh;
 }
 
-.container {
-  background-color: white;
-  border-radius: 10px; 
+.company-info {
+  color: white; 
   text-align: center;
-  padding: 25px;
-  height: 550px;
-  width: 800px;
+  transform: translateY(-150px);
 }

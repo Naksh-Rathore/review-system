@@ -8,6 +8,15 @@ export function getAverageReview(reviews) {
     return Math.round(total / reviews.length)
 }
 
+export function ratingToImage(rating) {
+    let finalStr = ""
+
+    finalStr += "★".repeat(rating)
+    finalStr += "☆".repeat(rating - rating)
+
+    return finalStr
+}
+
 export function sortReviews() {
 
 }
