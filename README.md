@@ -15,7 +15,7 @@ That's why this project has many real-world applications.
 **Step 2 (Enter backend folder)**: `cd backend`<br /> 
 **Step 3: Add a .env file storing your MongoDB URI and port**. (ex. `MONGODB_URI="mongodb-url" PORT=3000`)<br />
 **Step 4 (Add dependencies)**: `npm install`<br />
-**Step 5 (run server.js)**: `node server.js`<br />
+**Step 5 (run server.js)**: `node server.js` or with Nodemon `npm run dev`<br />
 **Step 6**: Test with Postman, Insomnia, or more!<br />
 
 ### Frontend Setup
