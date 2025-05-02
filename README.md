@@ -2,7 +2,7 @@
 
 ## Overview
 This is my review system. It is a full-stack application made in the **MERN Stack**. MERN stands for MongoDB, Express JS, React JS, and Node.js. It is an extremely popular tech stack mainly used for startups.
-My web application is similiar to **Google Reviews**, which is also a reviewing site for businesses. Reviews can affect businesses a lot, since many consumers first check reviews before buying from them. 
+My web application is similar to **Google Reviews**, which is also a reviewing site for businesses. Reviews can affect businesses a lot, since many consumers first check reviews before buying from them. 
 That's why this project has many real-world applications.
 
 ![MERN Stack](https://images.prismic.io/loco-blogs/79328284-f97b-489f-924c-eb3b17e34b56_image2.png?auto=compress%2Cformat&rect=0%2C0%2C1999%2C1124&w=3840&fit=max)<br />
@@ -15,7 +15,7 @@ That's why this project has many real-world applications.
 **Step 2 (Enter backend folder)**: `cd backend`<br /> 
 **Step 3: Add a .env file storing your MongoDB URI and port**. (ex. `MONGODB_URI="mongodb-url" PORT=3000`)<br />
 **Step 4 (Add dependencies)**: `npm install`<br />
-**Step 5 (run server.js)**: `node server.js`<br />
+**Step 5 (run server.js)**: `node server.js` or for Nodemon run `npm run dev`<br />
 **Step 6**: Test with Postman, Insomnia, or more!<br />
 
 ### Frontend Setup
