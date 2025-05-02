@@ -19,6 +19,7 @@ function App() {
   return (
     <div className="container">
       <CompanyInfo avgImage={avgImage}/>
+      <button id="write-review-button">Write a Review</button>
     </div>
   )
 }

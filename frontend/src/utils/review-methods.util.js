@@ -16,7 +16,3 @@ export function ratingToImage(rating) {
 
     return finalStr
 }
-
-export function sortReviews() {
-
-}

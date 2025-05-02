@@ -12,3 +12,23 @@ body {
   text-align: center;
   transform: translateY(-150px);
 }
+
+#write-review-button {
+  transform: translate(33px, -120px);
+  width: 75%;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#write-review-button:hover {
+  background-color: hsl(0, 100%, 45%);
+}
+
+#write-review-button:active {
+  background-color: hsl(0, 100%, 40%);
+}
