@@ -1,21 +1,18 @@
 body {
   font-family: sans-serif, Arial;
   background-color: hsl(0, 0%, 20%);
-  display: flex;
-  align-items: center;
-  justify-self: center;
-  height: 100vh;
+  height: auto; 
+  min-height: 100vh; 
+  overflow: auto; 
 }
 
 .company-info {
-  color: white; 
+  color: white;
   text-align: center;
-  transform: translateY(-150px);
 }
 
 #write-review-button {
-  transform: translate(33px, -120px);
-  width: 75%;
+  width: 25%;
   padding: 10px;
   font-size: 20px;
   border-radius: 10px;
@@ -23,6 +20,7 @@ body {
   border: none;
   color: white;
   cursor: pointer;
+  transform: translateX(150%);
 }
 
 #write-review-button:hover {
