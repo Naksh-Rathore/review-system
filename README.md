@@ -2,7 +2,7 @@
 
 ## Overview
 This is my review system. It is a full-stack application made in the **MERN Stack**. MERN stands for MongoDB, Express JS, React JS, and Node.js. It is an extremely popular tech stack mainly used for startups.
-My web application is similiar to **Google Reviews**, which is also a reviewing site for businesses. Reviews can affect businesses a lot, since many consumers first check reviews before buying from them. 
+My web application is similar to **Google Reviews**, which is also a reviewing site for businesses. Reviews can affect businesses a lot, since many consumers first check reviews before buying from them. 
 That's why this project has many real-world applications.
 
 ![MERN Stack](https://images.prismic.io/loco-blogs/79328284-f97b-489f-924c-eb3b17e34b56_image2.png?auto=compress%2Cformat&rect=0%2C0%2C1999%2C1124&w=3840&fit=max)<br />
