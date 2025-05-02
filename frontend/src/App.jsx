@@ -2,9 +2,13 @@ import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import { getAverageReview, ratingToImage } from "./utils/review-methods.util.js"
 import { getReviews } from "./utils/fetch-api.util.js"
 import { useEffect, useState } from "react"
+import Modal from "react-modal"
+
+Modal.setAppElement('#root')
 
 function App() {
     const [avgImage, setAvgImage] = useState("")
+    const [modalIsOpen, setModalIsOpen] = useState(false)
     
     useEffect(() => {
         const fetchAndLog = async () => {
@@ -19,7 +23,32 @@ function App() {
   return (
     <div className="container">
       <CompanyInfo avgImage={avgImage}/>
-      <button id="write-review-button">Write a Review</button>
+      <button id="write-review-button" onClick={() => setModalIsOpen(true)}>Write a Review</button>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        contentLabel="Example Modal"
+        style={{
+          content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            padding: '20px',
+            borderRadius: '10px'
+          }
+        }}
+      >
+        <input type="text" placeholder="Enter Username"/>
+        <input type="number" placeholder="Enter Rating"/>
+        <textarea placeholder="Enter Comment"/><br /><br />
+        
+        <button onClick={() => setModalIsOpen(false)}>Submit</button>
+        <button onClick={() => setModalIsOpen(false)}>Close</button>
+      </Modal>
     </div>
   )
 }
