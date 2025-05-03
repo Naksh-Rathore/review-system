@@ -1,6 +1,7 @@
 .review {
     background-color: white;
     padding: 10px;
-    margin-top: 50px;
     border-radius: 10px;
+    width: 50%;
+    margin: 50px auto;
 }
