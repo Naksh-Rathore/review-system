@@ -17,16 +17,16 @@ function App() {
   const [comment, setComment] = useState("")
     
   useEffect(() => {
-    const fetchAndLog = async () => {
-    const res = await getReviews("http://localhost:8080/api/reviews")
-    const numericalReview = getAverageReview(res)
+      const fetchAndLog = async () => {
+      const res = await getReviews("http://localhost:8080/api/reviews")
+      const numericalReview = getAverageReview(res)
 
-    setAvgImage(ratingToImage(numericalReview))
+      setAvgImage(ratingToImage(numericalReview))
       setReviews(res)
     }
     
       fetchAndLog()
-  }, [reviews.length])
+  }, [])
 
   const createReview = async () => {
     setModalIsOpen(false)
@@ -38,8 +38,13 @@ function App() {
             rating: Number(rating)
         }
 
-      setReviews(r => [newReview, ...r])
+      const updatedReviews = [newReview, ...reviews]
+      setReviews(updatedReviews)  
+
       await postReview("http://localhost:8080/api/reviews", newReview)
+      
+      const numericalReview = getAverageReview(updatedReviews)
+      setAvgImage(ratingToImage(numericalReview))
     }
   }  
 
