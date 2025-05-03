@@ -1,7 +1,7 @@
 import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import { getAverageReview, ratingToImage } from "./utils/review-methods.util.js"
 import { getReviews } from "./utils/fetch-api.util.js"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import Review from "./components/Reviews/Reviews.component.jsx"
 import Modal from "react-modal"
 
@@ -11,7 +11,7 @@ function App() {
     const [avgImage, setAvgImage] = useState("")
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
-    const reviews = useRef([])
+    const [reviews, setReviews] = useState([])
     
     useEffect(() => {
         const fetchAndLog = async () => {
@@ -19,14 +19,14 @@ function App() {
           const numericalReview = getAverageReview(res)
           setAvgImage(ratingToImage(numericalReview))
 
-          reviews.current = res.map(review => {
+          setReviews(res.map(review => {
             return <Review
               username={review.username}
               rating={review.rating}
               comment={review.comment}
             />
-        })
-        }
+        }))
+      }
     
         fetchAndLog()
       }, [])
