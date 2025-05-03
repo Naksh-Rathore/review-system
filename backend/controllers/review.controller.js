@@ -3,7 +3,7 @@ import Review from "../models/review.model.js"
 // To get all products (no ID because it's not needed yet)
 const getAllReviews = async (req, res) => {
     try {
-        const reviews = await Review.find({})
+        const reviews = await Review.find().sort({ createdAt: -1 })
         res.status(200).json(reviews)
     } 
     
