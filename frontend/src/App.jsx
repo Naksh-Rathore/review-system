@@ -10,7 +10,6 @@ Modal.setAppElement('#root')
 function App() {
     const [avgImage, setAvgImage] = useState("")
     const [modalIsOpen, setModalIsOpen] = useState(false)
-
     const [reviews, setReviews] = useState([])
     
     useEffect(() => {
@@ -19,13 +18,7 @@ function App() {
           const numericalReview = getAverageReview(res)
           setAvgImage(ratingToImage(numericalReview))
 
-          setReviews(res.map(review => {
-            return <Review
-              username={review.username}
-              rating={review.rating}
-              comment={review.comment}
-            />
-        }))
+          setReviews(res)
       }
     
         fetchAndLog()
@@ -61,7 +54,14 @@ function App() {
         <button onClick={() => setModalIsOpen(false)}>Close</button>
       </Modal>
 
-      {reviews.current}
+      {reviews.map((review, index) => (
+            <Review
+              key={index}
+              username={review.username}
+              rating={review.rating}
+              comment={review.comment}
+            />
+        ))}
     </div>
   )
 }
