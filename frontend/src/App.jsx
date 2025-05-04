@@ -6,7 +6,6 @@ import { getReviews, postReview } from "./utils/fetch-api.util.js"
 
 import { useEffect, useState } from "react"
 import Modal from "react-modal"
-import InfiniteScroll from "react-infinite-scroll-component"
 
 Modal.setAppElement('#root')
 
