@@ -1,9 +1,12 @@
 import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
+import Review from "./components/Reviews/Reviews.component.jsx"
+
 import { getAverageReview, ratingToImage } from "./utils/review-methods.util.js"
 import { getReviews, postReview } from "./utils/fetch-api.util.js"
+
 import { useEffect, useState } from "react"
-import Review from "./components/Reviews/Reviews.component.jsx"
 import Modal from "react-modal"
+import InfiniteScroll from "react-infinite-scroll-component"
 
 Modal.setAppElement('#root')
 
@@ -19,10 +22,13 @@ function App() {
   useEffect(() => {
       const fetchAndLog = async () => {
       const res = await getReviews("http://localhost:8080/api/reviews")
-      const numericalReview = getAverageReview(res)
 
-      setAvgImage(ratingToImage(numericalReview))
-      setReviews(res)
+      if (res) {
+        const numericalReview = getAverageReview(res)
+
+        setAvgImage(ratingToImage(numericalReview))
+        setReviews(res)
+      }
     }
     
       fetchAndLog()
@@ -50,7 +56,7 @@ function App() {
 
   return (
     <div className="container">
-      <CompanyInfo avgImage={avgImage}/>
+      <CompanyInfo avgImage={avgImage} />
       <button id="write-review-button" onClick={() => setModalIsOpen(true)}>Write a Review</button>
 
       <Modal
@@ -78,14 +84,14 @@ function App() {
         <button onClick={() => setModalIsOpen(false)}>Close</button>
       </Modal>
 
-      {reviews.map((review, index) => (
-            <Review
-              key={index}
-              username={review.username}
-              rating={review.rating}
-              comment={review.comment}
-            />
-        ))}
+    {reviews.map((review, index) => (
+      <Review
+        key={index}
+        username={review.username}
+        rating={review.rating}
+        comment={review.comment}
+      />
+    ))}
     </div>
   )
 }
