@@ -15,8 +15,8 @@ function Paginate({ totalReviews, setPage, page }) {
 
     return (
         <div className="pagination">
-            <button onClick={nextPage}>Next Page</button>
             <button onClick={previousPage}>Previous Page</button>
+            <button onClick={nextPage}>Next Page</button>
         </div>
     )
 }   
