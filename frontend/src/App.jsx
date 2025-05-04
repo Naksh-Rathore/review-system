@@ -1,10 +1,11 @@
 import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import Review from "./components/Reviews/Reviews.component.jsx"
+import Paginate from "./components/Paginate/Paginate.component.jsx"
 
 import { getAverageReview, ratingToImage } from "./utils/review-methods.util.js"
 import { getReviews, postReview } from "./utils/fetch-api.util.js"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Modal from "react-modal"
 
 Modal.setAppElement('#root')
@@ -17,21 +18,25 @@ function App() {
   const [username, setUsername] = useState("")
   const [rating, setRating] = useState(1)
   const [comment, setComment] = useState("")
+
+  const [page, setPage] = useState(1)
+  const totalReviews = useRef(0)
     
   useEffect(() => {
       const fetchAndLog = async () => {
-      const res = await getReviews("http://localhost:8080/api/reviews/paginate/1/3")
+      const res = await getReviews(`http://localhost:8080/api/reviews/paginate/${page}/3`)
 
       if (res) {
-        const numericalReview = getAverageReview(res)
+        const numericalReview = getAverageReview(res.data)
 
         setAvgImage(ratingToImage(numericalReview))
-        setReviews(res)
+        setReviews(res.data)
+        totalReviews.current = res.totalReviews
       }
     }
     
       fetchAndLog()
-  }, [])
+  }, [page])
 
   const createReview = async () => {
     setModalIsOpen(false)
@@ -78,10 +83,10 @@ function App() {
       >
         <h1>Write a Review</h1>
 
-        <input onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/><br /><br />
-        <input onChange={event => setRating(event.target.value)} type="number" placeholder="Enter Rating"/><br /><br />
+        <input value={username} onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/><br /><br />
+        <input value={rating} onChange={event => setRating(event.target.value)} type="number" placeholder="Enter Rating"/><br /><br />
 
-        <textarea onChange={event => setComment(event.target.value)} placeholder="Enter Comment"/><br /><br />
+        <textarea value={comment} onChange={event => setComment(event.target.value)} placeholder="Enter Comment"/><br /><br />
         
         <button onClick={createReview} id="submit-btn-modal">Submit</button>
         <button onClick={() => setModalIsOpen(false)} id="close-btn-modal">Close</button>
@@ -95,6 +100,10 @@ function App() {
         comment={review.comment}
       />
     ))}
+
+    <Paginate totalReviews={totalReviews.current}
+              setPage={setPage}
+              page={page}/>
     </div>
   )
 }

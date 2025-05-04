@@ -2,15 +2,20 @@ import Review from "../models/review.model.js"
 
 const getReviews = async (req, res) => {
     try {
-        const page = Number(req.params.page)
-        const limit = Number(req.params.limit)
+        const page = Math.max(1, Number(req.params.page) || 1)
+        const limit = Math.max(1, Number(req.params.limit) || 10)
+
+        const totalReviews = await Review.countDocuments()
 
         const reviews = await Review.find()
         .sort({ createdAt: -1 })
-        .skip(page * limit)
+        .skip((page - 1) * limit) 
         .limit(limit)
 
-        res.status(200).json(reviews)
+        res.status(200).json({
+            data: reviews,
+            totalReviews: totalReviews
+        })
     } 
     
     catch (error) {
