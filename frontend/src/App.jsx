@@ -61,7 +61,10 @@ function App() {
   return (
     <div className="container">
       <CompanyInfo avgImage={avgImage} />
-      <button id="write-review-button" onClick={() => setModalIsOpen(true)}>Write a Review</button>
+
+      <div className="button-container">
+        <button id="write-review-button" onClick={() => setModalIsOpen(true)}>Write a Review</button>
+      </div>
 
       <Modal
         id="modal"
@@ -90,7 +93,9 @@ function App() {
         
         <button onClick={createReview} id="submit-btn-modal">Submit</button>
         <button onClick={() => setModalIsOpen(false)} id="close-btn-modal">Close</button>
-      </Modal>
+     </Modal>
+
+    <h2 style={{color: "white", textAlign: "center"}}>Page {page}:</h2>
 
     {reviews.map((review, index) => (
       <Review
