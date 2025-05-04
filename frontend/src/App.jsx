@@ -20,7 +20,7 @@ function App() {
     
   useEffect(() => {
       const fetchAndLog = async () => {
-      const res = await getReviews("http://localhost:8080/api/reviews")
+      const res = await getReviews("http://localhost:8080/api/reviews/paginate/1/3")
 
       if (res) {
         const numericalReview = getAverageReview(res)

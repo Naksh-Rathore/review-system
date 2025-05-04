@@ -1,9 +1,15 @@
 import Review from "../models/review.model.js"
 
-// To get all products (no ID because it's not needed yet)
-const getAllReviews = async (req, res) => {
+const getReviews = async (req, res) => {
     try {
-        const reviews = await Review.find().sort({ createdAt: -1 })
+        const page = Number(req.params.page)
+        const limit = Number(req.params.limit)
+
+        const reviews = await Review.find()
+        .sort({ createdAt: -1 })
+        .skip(page * limit)
+        .limit(limit)
+
         res.status(200).json(reviews)
     } 
     
@@ -38,4 +44,4 @@ const deleteReview = async (req, res) => {
     }
 }
 
-export default { getAllReviews, createReview, deleteReview }
+export default { getReviews, createReview, deleteReview }
