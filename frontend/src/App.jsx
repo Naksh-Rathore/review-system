@@ -59,6 +59,7 @@ function App() {
       <button id="write-review-button" onClick={() => setModalIsOpen(true)}>Write a Review</button>
 
       <Modal
+        id="modal"
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         contentLabel="Example Modal"
@@ -75,12 +76,15 @@ function App() {
           }
         }}
       >
-        <input onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/>
-        <input onChange={event => setRating(event.target.value)} type="number" placeholder="Enter Rating"/>
+        <h1>Write a Review</h1>
+
+        <input onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/><br /><br />
+        <input onChange={event => setRating(event.target.value)} type="number" placeholder="Enter Rating"/><br /><br />
+
         <textarea onChange={event => setComment(event.target.value)} placeholder="Enter Comment"/><br /><br />
         
-        <button onClick={createReview}>Submit</button>
-        <button onClick={() => setModalIsOpen(false)}>Close</button>
+        <button onClick={createReview} id="submit-btn-modal">Submit</button>
+        <button onClick={() => setModalIsOpen(false)} id="close-btn-modal">Close</button>
       </Modal>
 
     {reviews.map((review, index) => (
