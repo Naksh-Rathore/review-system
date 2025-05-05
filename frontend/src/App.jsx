@@ -42,10 +42,10 @@ function App() {
     setModalIsOpen(false)
 
     if (username.length > 0 && (rating >= 1 && rating <= 5) && comment.length > 0) {
-      const newReview = {
+        const newReview = {
             username: username, 
             comment: comment,
-            rating: Number(rating)
+            rating: rating
         }
 
       const updatedReviews = [newReview, ...reviews]
