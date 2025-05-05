@@ -12,6 +12,7 @@ button {
     color: white;
     background-color: hsl(222, 71%, 55%);
     cursor: pointer;
+    transition: background-color 0.25s ease;
 }
 
 button:hover {
