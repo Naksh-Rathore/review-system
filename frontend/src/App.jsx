@@ -2,8 +2,8 @@ import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import Review from "./components/Reviews/Reviews.component.jsx"
 import Paginate from "./components/Paginate/Paginate.component.jsx"
 
-import { getAverageReview, ratingToImage } from "./utils/review-methods.util.js"
-import { getReviews, postReview } from "./utils/fetch-api.util.js"
+import { getAverageReview, ratingToImage, createReview } from "./utils/review-methods.util.js"
+import { getReviews } from "./utils/fetch-api.util.js"
 
 import { useEffect, useState, useRef } from "react"
 import Modal from "react-modal"
@@ -38,27 +38,7 @@ function App() {
     }
     
       fetchAndLog()
-  }, [page])
-
-  const createReview = async () => {
-    setModalIsOpen(false)
-
-    if (username.length > 0 && (rating >= 1 && rating <= 5) && comment.length > 0) {
-        const newReview = {
-            username: username, 
-            comment: comment,
-            rating: rating
-        }
-
-      const updatedReviews = [newReview, ...reviews]
-      setReviews(updatedReviews)  
-
-      await postReview("http://localhost:8080/api/reviews", newReview)
-      
-      const numericalReview = getAverageReview(updatedReviews)
-      setAvgImage(ratingToImage(numericalReview))
-    }
-  }  
+  }, [page])  
 
   return (
     <div className="container">
@@ -69,31 +49,19 @@ function App() {
       </div>
 
       <Modal
-        id="modal"
+        className="modal"
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         contentLabel="Example Modal"
-        style={{
-          content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            padding: '20px',
-            borderRadius: '10px'
-          }
-        }}
       >
         <h1>Write a Review</h1>
 
-        <input value={username} onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/><br /><br />
+        <input value={username} maxLength={20} onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/><br /><br />
         <input value={rating} onChange={event => setRating(event.target.value)} type="number" placeholder="Enter Rating"/><br /><br />
 
-        <textarea value={comment} onChange={event => setComment(event.target.value)} placeholder="Enter Comment"/><br /><br />
+        <textarea value={comment} maxLength={238} onChange={event => setComment(event.target.value)} placeholder="Enter Comment"/><br /><br />
         
-        <button onClick={createReview} id="submit-btn-modal">Submit</button>
+        <button onClick={() => createReview(setAvgImage, setModalIsOpen, username, rating, comment, reviews, setReviews)} id="submit-btn-modal">Submit</button>
         <button onClick={() => setModalIsOpen(false)} id="close-btn-modal">Close</button>
      </Modal>
 
