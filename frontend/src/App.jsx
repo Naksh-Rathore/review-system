@@ -8,6 +8,8 @@ import { getReviews, postReview } from "./utils/fetch-api.util.js"
 import { useEffect, useState, useRef } from "react"
 import Modal from "react-modal"
 
+import "./Modal.css"
+
 Modal.setAppElement('#root')
 
 function App() {
