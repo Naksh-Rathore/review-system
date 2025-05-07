@@ -1,8 +1,8 @@
 import "./Paginate.css"
 
-function Paginate({ totalReviews, setPage, page }) {
+function Paginate({ totalReviews, setPage, page, reviewLimit }) {
     const nextPage = () => {
-        if (page * 3 < totalReviews) {
+        if (page * reviewLimit < totalReviews) {
             setPage(p => p + 1)
         }
     }

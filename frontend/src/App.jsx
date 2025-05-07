@@ -24,10 +24,12 @@ function App() {
 
   const [page, setPage] = useState(1)
   const totalReviews = useRef(0)
+
+  const reviewLimit = 10
     
   useEffect(() => {
       const fetchAndLog = async () => {
-      const res = await getReviews(`http://localhost:8080/api/reviews/paginate/${page}/3`)
+      const res = await getReviews(`http://localhost:8080/api/reviews/paginate/${page}/${reviewLimit}`)
 
       if (res) {
         const numericalReview = getAverageReview(res.data)
@@ -79,7 +81,8 @@ function App() {
 
     <Paginate totalReviews={totalReviews.current}
               setPage={setPage}
-              page={page}/>
+              page={page}
+              reviewLimit={reviewLimit}/>
     </div>
   )
 }
