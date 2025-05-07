@@ -19,7 +19,7 @@ function App() {
   const [reviews, setReviews] = useState([])
   
   const [username, setUsername] = useState("")
-  const [rating, setRating] = useState(1)
+  const [rating, setRating] = useState(5)
   const [comment, setComment] = useState("")
 
   const [page, setPage] = useState(1)
