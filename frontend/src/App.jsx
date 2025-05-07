@@ -1,6 +1,7 @@
 import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import Review from "./components/Reviews/Reviews.component.jsx"
 import Paginate from "./components/Paginate/Paginate.component.jsx"
+import StarClicker from "./components/Star-Clicker/Star-Clicker.component.jsx"
 
 import { getAverageReview, ratingToImage, createReview } from "./utils/review-methods.util.js"
 import { getReviews } from "./utils/fetch-api.util.js"
@@ -56,8 +57,8 @@ function App() {
       >
         <h1>Write a Review</h1>
 
-        <input value={username} maxLength={20} onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/><br /><br />
-        <input value={rating} onChange={event => setRating(event.target.value)} type="number" placeholder="Enter Rating"/><br /><br />
+        <input value={username} maxLength={20} onChange={event => setUsername(event.target.value.trim())} type="text" placeholder="Enter Username"/><br />
+        <StarClicker setRating={setRating}/><br />
 
         <textarea value={comment} maxLength={238} onChange={event => setComment(event.target.value)} placeholder="Enter Comment"/><br /><br />
         
