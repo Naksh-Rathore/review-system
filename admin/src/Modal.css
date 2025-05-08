@@ -1,69 +1,69 @@
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    right: auto;
-    bottom: auto;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border-radius: 10px;
-    background: white;
-    outline: none;
-    text-align: center;
-  }
-  
-  .modal h1 {
-    text-align: center;
-  }
-  
-  .modal input,
-  .modal textarea {
-    border-radius: 10px;
-    padding: 10px;
-    border: 2px solid;
-    margin: 15px;
-    font-size: 20px;
-    font-family: Tahoma;
-  }
-  
-  .modal textarea {
-    width: 225px;
-    height: 225px;
-  }
-  
-  .modal button {
-    margin: 15px;
-    border: none;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.25s ease;
-  }
-  
-  #submit-btn-modal {
-    background-color: green;
-  }
-  
-  #submit-btn-modal:hover {
-    background-color: hsl(120, 100%, 30%);
-  }
-  
-  #submit-btn-modal:active {
-    background-color: hsl(120, 100%, 35%);
-  }
-  
-  #close-btn-modal {
-    background-color: red;
-  }
-  
-  #close-btn-modal:hover {
-    background-color: hsl(0, 100%, 45%);
-  }
-  
-  #close-btn-modal:active {
-    background-color: hsl(0, 100%, 40%);
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  outline: none;
+  text-align: center;
+}
+
+.modal h1 {
+  text-align: center;
+}
+
+.modal input,
+.modal textarea {
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid;
+  margin: 15px;
+  font-size: 20px;
+  font-family: Tahoma;
+}
+
+.modal textarea {
+  width: 225px;
+  height: 225px;
+}
+
+.modal button {
+  margin: 15px;
+  border: none;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+#submit-btn-modal {
+  background-color: green;
+}
+
+#submit-btn-modal:hover {
+  background-color: hsl(120, 100%, 30%);
+}
+
+#submit-btn-modal:active {
+  background-color: hsl(120, 100%, 35%);
+}
+
+#close-btn-modal {
+  background-color: red;
+}
+
+#close-btn-modal:hover {
+  background-color: hsl(0, 100%, 45%);
+}
+
+#close-btn-modal:active {
+  background-color: hsl(0, 100%, 40%);
+}
