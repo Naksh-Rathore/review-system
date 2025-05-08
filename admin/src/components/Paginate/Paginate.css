@@ -1,0 +1,24 @@
+.pagination {
+    display: flex;
+    justify-self: center;
+}
+
+button {
+    margin: 30px;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: hsl(222, 71%, 55%);
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+button:hover {
+    background-color: hsl(222, 71%, 50%);
+}
+
+button:active {
+    background-color: hsl(222, 71%, 45%);
+}

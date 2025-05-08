@@ -1,0 +1,10 @@
+.review {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 50px auto;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
