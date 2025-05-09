@@ -7,9 +7,6 @@ import { getAverageReview, ratingToImage } from "./utils/review-methods.util.js"
 import { getReviews } from "./utils/fetch-api.util.js"
 
 import { useEffect, useState, useRef } from "react"
-import Modal from "react-modal"
-
-Modal.setAppElement('#root')
 
 function App() {
   const [avgImage, setAvgImage] = useState("")
