@@ -19,12 +19,14 @@ body {
 #write-review-button {
   width: 25%;
   padding: 10px;
-  font-size: 20px;
+  font-size: 25px;
   border-radius: 10px;
   background-color: red;
   border: none;
   color: white;
   cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 #write-review-button:hover {
@@ -33,4 +35,21 @@ body {
 
 #write-review-button:active {
   background-color: hsl(0, 100%, 40%);
+}
+
+.page-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.page-btn button {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 25px;
+  background-color: hsl(222, 71%, 55%);
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
 }

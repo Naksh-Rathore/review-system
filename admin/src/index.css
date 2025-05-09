@@ -10,3 +10,20 @@ body {
   color: white;
   text-align: center;
 }
+
+.page-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.page-btn button {
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 25px;
+  background-color: red;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}

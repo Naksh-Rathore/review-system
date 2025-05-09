@@ -3,7 +3,7 @@
     justify-self: center;
 }
 
-button {
+.pagination button {
     margin: 30px;
     font-size: 25px;
     padding: 10px;
@@ -15,10 +15,10 @@ button {
     transition: background-color 0.25s ease;
 }
 
-button:hover {
+.pagination button:hover {
     background-color: hsl(222, 71%, 50%);
 }
 
-button:active {
+.pagination button:active {
     background-color: hsl(222, 71%, 45%);
 }

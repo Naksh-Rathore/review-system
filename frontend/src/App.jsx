@@ -49,7 +49,7 @@ function App() {
 
       <div className="button-container">
         <button id="write-review-button" onClick={() => setModalIsOpen(true)}>Write a Review</button>
-      </div>
+      </div><br /><br />
 
       <Modal
         className="modal"
@@ -68,7 +68,9 @@ function App() {
         <button onClick={() => setModalIsOpen(false)} id="close-btn-modal">Close</button>
      </Modal>
 
-    <h2 style={{color: "white", textAlign: "center"}}>Page {page}:</h2>
+     <div className="page-btn">
+      <button disabled>Page {page}</button>
+    </div>
 
     {reviews.map((review, index) => (
       <Review

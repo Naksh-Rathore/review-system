@@ -35,9 +35,11 @@ function App() {
 
   return (
     <div className="container">
-      <CompanyInfo avgImage={avgImage} />
+      <CompanyInfo avgImage={avgImage} /><br />
 
-    <h2 style={{color: "white", textAlign: "center"}}>Page {page}:</h2>
+    <div className="page-btn">
+      <button disabled>Page {page}</button>
+    </div>
 
     {reviews.map((review, index) => (
       <Review
