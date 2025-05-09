@@ -15,17 +15,3 @@ export async function getReviews(url) {
         throw new Error(`Could not fetch data: ${error}`)
     }
 }
-
-export async function postReview(url, review) {
-    try {
-        const res = await axios.post(url, review)
-
-        if (res.status !== 200) {
-            throw new Error("Response was not ok!")
-        }
-    }
-
-    catch(error) {
-        throw new Error(`Could not fetch data: ${error}`)
-    }
-}
