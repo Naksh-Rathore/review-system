@@ -46,6 +46,8 @@ function App() {
         username={review.username}
         rating={review.rating}
         comment={review.comment}
+        id={review._id}
+        setReviews={setReviews}
       />
     ))}
 
