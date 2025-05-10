@@ -5,7 +5,7 @@ function Review({ username, rating, comment }) {
     return (
         <div className="review">
             <div className="delete-btn-container">
-                <button>🗑️</button>
+                <button title="Delete this review">🗑️</button>
             </div>
 
             <h3>{username}</h3>
