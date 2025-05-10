@@ -3,8 +3,8 @@ import Review from "./components/Reviews/Reviews.component.jsx"
 import Paginate from "./components/Paginate/Paginate.component.jsx"
 import StarClicker from "./components/Star-Clicker/Star-Clicker.component.jsx"
 
-import { getAverageReview, ratingToImage } from "./utils/review-methods.util.js"
-import { getReviews } from "./utils/fetch-api.util.js"
+import { ratingToImage } from "./utils/review-methods.util.js"
+import { getData } from "./utils/fetch-api.util.js"
 
 import { useEffect, useState, useRef } from "react"
 
@@ -19,14 +19,13 @@ function App() {
     
   useEffect(() => {
       const fetchAndLog = async () => {
-      const res = await getReviews(`http://localhost:8080/api/reviews/paginate/${page}/${reviewLimit}`)
-
-      if (res) {
-        const numericalReview = getAverageReview(res.data)
-
-        setAvgImage(ratingToImage(numericalReview))
-        setReviews(res.data)
-        totalReviews.current = res.totalReviews
+      const reviewRes = await getData(`http://localhost:8080/api/reviews/paginate/${page}/${reviewLimit}`) 
+      const avgRating = await getData("http://localhost:8080/api/reviews/average")
+      
+      if (reviewRes) {
+        setAvgImage(ratingToImage(avgRating.averageRating))
+        setReviews(reviewRes.data)
+        totalReviews.current = reviewRes.totalReviews
       }
     }
     

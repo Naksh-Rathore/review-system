@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export async function getReviews(url) {
+export async function getData(url) {
     try {
         const res = await axios.get(url)
 
