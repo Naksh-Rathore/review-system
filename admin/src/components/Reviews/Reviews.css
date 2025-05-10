@@ -7,4 +7,29 @@
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    position: relative;
+}
+
+.delete-btn-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.delete-btn-container button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.25s ease;
+}
+
+.delete-btn-container button:hover {
+    background-color: hsla(0, 0%, 90%, 0.9);
+}
+
+.delete-btn-container button:active {
+    background-color: hsla(0, 0%, 80%, 0.8);
 }
