@@ -23,6 +23,32 @@ const getReviews = async (req, res) => {
     }
 }
 
+const getAverageRating = async (req, res) => {
+  try {
+    const result = await Review.aggregate([
+      {
+        $group: {
+          _id: null,
+          averageRating: { $avg: "$rating" },
+          totalReviews: { $sum: 1 }
+        }
+      }
+    ])
+
+    if (!result.length) {
+      return res.json({ averageRating: 0, totalReviews: 0 })
+    }
+
+    res.json({
+      averageRating: Math.round(result[0].averageRating),
+      totalReviews: result[0].totalReviews
+    })
+  } catch (error) {
+    res.status(500).json({ error: "Failed to calculate average rating" })
+  }
+}
+
+
 const createReview = async (req, res) => {
     try {
         const review = await Review.create(req.body)
@@ -49,4 +75,4 @@ const deleteReview = async (req, res) => {
     }
 }
 
-export default { getReviews, createReview, deleteReview }
+export default { getReviews, createReview, deleteReview, getAverageRating }

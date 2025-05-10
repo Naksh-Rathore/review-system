@@ -8,6 +8,9 @@ const router = express.Router()
 router.route("/")
 .post(routeLogic.createReview)
 
+router.route("/average")
+.get(routeLogic.getAverageRating)
+
 router.route("/:id")
 .delete(routeLogic.deleteReview)
 
