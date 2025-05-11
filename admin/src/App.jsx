@@ -39,9 +39,9 @@ function App() {
       <button disabled>Page {page}</button>
     </div>
 
-    {reviews.map((review, index) => (
+    {reviews.map(review => (
       <Review
-        key={index}
+        key={review._id}
         username={review.username}
         rating={review.rating}
         comment={review.comment}
