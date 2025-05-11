@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function StarClicker({ setRating }) {
     // Set default rating to 5 stars
     const [starStatus , setStarStatus] = useState([true, true, true, true, true])
+
+    useEffect(() => {
+        setRating(5)
+    }, [setRating])
 
     const handleClick = index => {
         // index + 1 is to change inclusive array index to exclusive rating
