@@ -1,7 +1,6 @@
 import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import Review from "./components/Reviews/Reviews.component.jsx"
 import Paginate from "./components/Paginate/Paginate.component.jsx"
-import StarClicker from "./components/Star-Clicker/Star-Clicker.component.jsx"
 
 import { ratingToImage } from "./utils/review-methods.util.js"
 import { getData } from "./utils/fetch-api.util.js"
