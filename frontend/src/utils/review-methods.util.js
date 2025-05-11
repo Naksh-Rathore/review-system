@@ -33,8 +33,5 @@ export async function createReview(setAvgImage, setModalIsOpen, username, rating
       setReviews(updatedReviews)  
 
       await postReview("http://localhost:8080/api/reviews", newReview)
-      
-      const numericalReview = getAverageReview(updatedReviews)
-      setAvgImage(ratingToImage(numericalReview))
     }
   }
