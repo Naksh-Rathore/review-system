@@ -46,7 +46,7 @@ function App() {
       contentLabel="Example Modal"
       shouldCloseOnEsc={false}
       shouldCloseOnOverlayClick={false}>
-        <ModalContent />
+        <ModalContent setModalIsOpen={setModalIsOpen}/>
       </Modal>
 
       <CompanyInfo avgImage={avgImage} /><br />
