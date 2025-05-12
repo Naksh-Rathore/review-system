@@ -1,7 +1,7 @@
 import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import Review from "./components/Reviews/Reviews.component.jsx"
 import Paginate from "./components/Paginate/Paginate.component.jsx"
-import ModalContent from "./components/Modal-Content/Modal-Content.jsx"
+import LoginForm from "./components/Login-Form/Login-Form.jsx"
 
 import { ratingToImage } from "./utils/review-methods.util.js"
 import { getData } from "./utils/fetch-api.util.js"
@@ -46,7 +46,7 @@ function App() {
       contentLabel="Example Modal"
       shouldCloseOnEsc={false}
       shouldCloseOnOverlayClick={false}>
-        <ModalContent setModalIsOpen={setModalIsOpen}/>
+        <LoginForm setModalIsOpen={setModalIsOpen}/>
       </Modal>
 
       <CompanyInfo avgImage={avgImage} /><br />

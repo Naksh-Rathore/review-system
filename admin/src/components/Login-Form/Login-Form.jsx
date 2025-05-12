@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function ModalContent({ setModalIsOpen }) {
+function LoginForm({ setModalIsOpen }) {
     const password = "1234"
 
     const [userPasswordGuess, setUserPasswordGuess] = useState("")
@@ -27,4 +27,4 @@ function ModalContent({ setModalIsOpen }) {
     )
 }
 
-export default ModalContent
+export default LoginForm
