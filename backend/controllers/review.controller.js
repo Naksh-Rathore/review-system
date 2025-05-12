@@ -1,5 +1,8 @@
 import Review from "../models/review.model.js"
 
+import bcrypt from "bcrypt"
+import dotenv from "dotenv"
+
 const getReviews = async (req, res) => {
     try {
         const page = Math.max(1, Number(req.params.page) || 1)
@@ -75,4 +78,18 @@ const deleteReview = async (req, res) => {
     }
 }
 
-export default { getReviews, createReview, deleteReview, getAverageRating }
+const checkPassword = async (req, res) => {
+  const password = req.body.password
+
+  if (!password) {
+      return res.status(400).json({ message: "password not found in body" })
+  }
+
+  res.status(200).json({ passwordMatches: await bcrypt.compare(password, process.env.HASHED_ADMIN_PASSWORD) })
+}
+
+export default { getReviews,
+                 createReview, 
+                 deleteReview, 
+                 getAverageRating,
+                 checkPassword }

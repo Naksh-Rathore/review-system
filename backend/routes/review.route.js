@@ -17,4 +17,7 @@ router.route("/:id")
 router.route("/paginate/:page/:limit")
 .get(routeLogic.getReviews)
 
+router.route("/check-password")
+.get(routeLogic.checkPassword)
+
 export default router
