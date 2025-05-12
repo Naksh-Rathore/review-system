@@ -1,11 +1,15 @@
 import CompanyInfo from "./components/Company-Info/Company-Info.component.jsx"
 import Review from "./components/Reviews/Reviews.component.jsx"
 import Paginate from "./components/Paginate/Paginate.component.jsx"
+import ModalContent from "./components/Modal-Content/Modal-Content.jsx"
 
 import { ratingToImage } from "./utils/review-methods.util.js"
 import { getData } from "./utils/fetch-api.util.js"
 
 import { useEffect, useState, useRef } from "react"
+import Modal from "react-modal"
+
+import "./Modal.css"
 
 function App() {
   const [avgImage, setAvgImage] = useState("")
@@ -13,6 +17,8 @@ function App() {
 
   const [page, setPage] = useState(1)
   const totalReviews = useRef(0)
+
+  const [modalIsOpen, setModalIsOpen] = useState(true)
 
   const reviewLimit = 10
     
@@ -33,6 +39,16 @@ function App() {
 
   return (
     <div className="container">
+      <Modal
+      className="modal"
+      isOpen={modalIsOpen}
+      onRequestClose={() => setModalIsOpen(false)}
+      contentLabel="Example Modal"
+      shouldCloseOnEsc={false}
+      shouldCloseOnOverlayClick={false}>
+        <ModalContent />
+      </Modal>
+
       <CompanyInfo avgImage={avgImage} /><br />
 
     <div className="page-btn">
