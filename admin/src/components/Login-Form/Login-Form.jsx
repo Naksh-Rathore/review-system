@@ -16,6 +16,8 @@ function LoginForm({ setModalIsOpen }) {
     }
 
     const handleSubmit = async () => {
+        if (userPasswordGuess.length <= 0) return
+
         if (tries.current > 5) {
             setButtonIsDisabled(true)
             return window.alert("You have used all your tries!")
