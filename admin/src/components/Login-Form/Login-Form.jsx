@@ -46,7 +46,9 @@ function LoginForm({ setModalIsOpen }) {
             <img src={lock} alt="Lock" /><br />
 
             <input type="password" placeholder="Enter Password" onChange={handleInputChange}/><br />
-            <button onClick={handleSubmit} disabled={buttonIsDisabled}>Submit</button>
+            <button onClick={handleSubmit} disabled={buttonIsDisabled}>Submit</button><br /><br />
+
+            <h3>{6 - tries.current} attempt(s) remaining</h3>
         </>
     )
 }
