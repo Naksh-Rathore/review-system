@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { getData } from "../../utils/fetch-api.util.js"
 
 import lock from "../../assets/lock.png"
@@ -6,6 +6,8 @@ import lock from "../../assets/lock.png"
 import "./Login-Form.css"
 
 function LoginForm({ setModalIsOpen }) {
+    const tries = useRef(1)
+
     const [userPasswordGuess, setUserPasswordGuess] = useState("")
     const [buttonIsDisabled, setButtonIsDisabled] = useState(false)
 
@@ -14,6 +16,11 @@ function LoginForm({ setModalIsOpen }) {
     }
 
     const handleSubmit = async () => {
+        if (tries.current > 5) {
+            setButtonIsDisabled(true)
+            return window.alert("You have used all your tries!")
+        }
+
         setButtonIsDisabled(true)
 
         const res = await getData(`http://localhost:8080/api/reviews/check-password/${userPasswordGuess}`)
@@ -23,6 +30,7 @@ function LoginForm({ setModalIsOpen }) {
         }
         
         else {
+            tries.current++
             window.alert("Incorrect password!")
         }
 
