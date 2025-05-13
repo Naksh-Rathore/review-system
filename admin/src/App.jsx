@@ -11,6 +11,8 @@ import Modal from "react-modal"
 
 import "./Modal.css"
 
+Modal.setAppElement('#root')
+
 function App() {
   const [avgImage, setAvgImage] = useState("")
   const [reviews, setReviews] = useState([])
@@ -39,8 +41,9 @@ function App() {
 
   return (
     <div className="container">
-      <Modal
+    <Modal
       className="modal"
+      overlayClassName="modal-overlay"
       isOpen={modalIsOpen}
       onRequestClose={() => setModalIsOpen(false)}
       contentLabel="Example Modal"

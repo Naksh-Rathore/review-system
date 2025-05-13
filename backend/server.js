@@ -1,13 +1,13 @@
 import express from "express"
- import dotenv from "dotenv"
- import mongoose from "mongoose"
- import cors from "cors"
+import dotenv from "dotenv"
+import mongoose from "mongoose"
+import cors from "cors"
  
- import Review from "./models/review.model.js"
- import router from "./routes/review.route.js"
- 
- import { logRequestInfo } from "./middleware/logRequestInfo.middleware.js"
- import { limiter } from "./middleware/rateLimiter.middleware.js"
+import Review from "./models/review.model.js"
+import router from "./routes/review.route.js"
+
+import { logRequestInfo } from "./middleware/logRequestInfo.middleware.js"
+import { limiter } from "./middleware/rateLimiter.middleware.js"
  
  dotenv.config()
  

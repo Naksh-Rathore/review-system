@@ -52,6 +52,7 @@ function App() {
 
       <Modal
         className="modal"
+        overlayClassName="modal-overlay"
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         contentLabel="Example Modal"
