@@ -26,6 +26,7 @@ function LoginForm({ setModalIsOpen }) {
         const res = await getData(`http://localhost:8080/api/reviews/check-password/${userPasswordGuess}`)
 
         if (res.passwordMatches) {
+            tries.current = 1
             setModalIsOpen(false)
         }
         
