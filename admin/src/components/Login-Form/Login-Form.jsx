@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { getData } from "../../utils/fetch-api.util.js"
 
 import lock from "../../assets/lock.png"
@@ -11,15 +11,40 @@ function LoginForm({ setModalIsOpen }) {
     const [userPasswordGuess, setUserPasswordGuess] = useState("")
     const [buttonIsDisabled, setButtonIsDisabled] = useState(false)
 
+    useEffect(() => {
+        const lockedUntil = localStorage.getItem("adminPasswordLockedUntil")
+
+        if (lockedUntil && new Date() > new Date(lockedUntil)) {
+            localStorage.removeItem("adminPasswordLockedUntil")
+            
+            tries.current = 1
+            localStorage.setItem("adminPasswordTries", String(tries.current))
+        }
+    }, [])
+
+
     const handleInputChange = event => {
         setUserPasswordGuess(event.target.value)
     }
 
     const handleSubmit = async () => {
+        const lockedUntil = localStorage.getItem("adminPasswordLockedUntil")
+
+        if (lockedUntil && new Date() < new Date(lockedUntil)) {
+            setButtonIsDisabled(true)
+            return window.alert(`You are locked out until ${new Date(lockedUntil).toLocaleTimeString()}`)
+        }
+
         if (userPasswordGuess.length <= 0) return
 
         if (tries.current > 5) {
             setButtonIsDisabled(true)
+
+            const oneHourLater = new Date()
+            oneHourLater.setHours(oneHourLater.getHours() + 1)
+
+            localStorage.setItem("adminPasswordLockedUntil", oneHourLater.toISOString())
+
             return window.alert("You have used all your tries!")
         }
 
@@ -37,7 +62,6 @@ function LoginForm({ setModalIsOpen }) {
         else {
             tries.current++
             localStorage.setItem("adminPasswordTries", String(tries.current))
-
 
             window.alert("Incorrect password!")
         }
