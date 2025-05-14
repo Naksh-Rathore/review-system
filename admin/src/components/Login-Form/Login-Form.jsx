@@ -6,7 +6,7 @@ import lock from "../../assets/lock.png"
 import "./Login-Form.css"
 
 function LoginForm({ setModalIsOpen }) {
-    const tries = useRef(1)
+    const tries = useRef(Number(localStorage.getItem("adminPasswordTries")) || 1)
 
     const [userPasswordGuess, setUserPasswordGuess] = useState("")
     const [buttonIsDisabled, setButtonIsDisabled] = useState(false)
@@ -29,11 +29,16 @@ function LoginForm({ setModalIsOpen }) {
 
         if (res.passwordMatches) {
             tries.current = 1
+            localStorage.setItem("adminPasswordTries", String(tries.current))
+
             setModalIsOpen(false)
         }
         
         else {
             tries.current++
+            localStorage.setItem("adminPasswordTries", String(tries.current))
+
+
             window.alert("Incorrect password!")
         }
 
