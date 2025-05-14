@@ -1,9 +1,6 @@
 import Review from "../models/review.model.js"
 
-import bcrypt from "bcrypt"
-import dotenv from "dotenv"
-
-const getReviews = async (req, res) => {
+export const getReviews = async (req, res) => {
     try {
         const page = Math.max(1, Number(req.params.page) || 1)
         const limit = Math.max(1, Number(req.params.limit) || 10)
@@ -26,7 +23,7 @@ const getReviews = async (req, res) => {
     }
 }
 
-const getAverageRating = async (req, res) => {
+export const getAverageRating = async (req, res) => {
   try {
     const result = await Review.aggregate([
       {
@@ -46,13 +43,15 @@ const getAverageRating = async (req, res) => {
       averageRating: Math.round(result[0].averageRating),
       totalReviews: result[0].totalReviews
     })
-  } catch (error) {
+  } 
+  
+  catch (error) {
     res.status(500).json({ error: "Failed to calculate average rating" })
   }
 }
 
 
-const createReview = async (req, res) => {
+export const createReview = async (req, res) => {
     try {
         const review = await Review.create(req.body)
         res.status(200).json(review)
@@ -64,12 +63,14 @@ const createReview = async (req, res) => {
 }
 
 // For admin only because reviews are anonymous (yet)
-const deleteReview = async (req, res) => {
+export const deleteReview = async (req, res) => {
     try {
         const review = await Review.findByIdAndDelete(req.params.id)
+
         if (!review) {
             return res.status(404).json({ message: "Review not found" })
         }
+
         res.status(200).json(review)
     } 
     
@@ -77,19 +78,3 @@ const deleteReview = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
-
-const checkPassword = async (req, res) => {
-  const password = req.params.password
-
-  if (!password) {
-      return res.status(400).json({ message: "password not found as a route parameter" })
-  }
-
-  res.status(200).json({ passwordMatches: await bcrypt.compare(password, process.env.HASHED_ADMIN_PASSWORD) })
-}
-
-export default { getReviews,
-                 createReview, 
-                 deleteReview, 
-                 getAverageRating,
-                 checkPassword }

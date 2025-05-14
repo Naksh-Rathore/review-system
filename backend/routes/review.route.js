@@ -1,23 +1,21 @@
 import express from "express"
+import { getReviews,
+        createReview, 
+        deleteReview, 
+        getAverageRating, } from "../controllers/review.controller.js"
 
-import Review from "../models/review.model.js"
-import routeLogic from "../controllers/review.controller.js"
+const reviewRouter = express.Router()
 
-const router = express.Router()
+reviewRouter.route("/")
+.post(createReview)
 
-router.route("/")
-.post(routeLogic.createReview)
+reviewRouter.route("/average")
+.get(getAverageRating)
 
-router.route("/average")
-.get(routeLogic.getAverageRating)
+reviewRouter.route("/:id")
+.delete(deleteReview)
 
-router.route("/:id")
-.delete(routeLogic.deleteReview)
+reviewRouter.route("/paginate/:page/:limit")
+.get(getReviews)
 
-router.route("/paginate/:page/:limit")
-.get(routeLogic.getReviews)
-
-router.route("/check-password/:password")
-.get(routeLogic.checkPassword)
-
-export default router
+export default reviewRouter

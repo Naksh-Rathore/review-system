@@ -25,7 +25,7 @@ function LoginForm({ setModalIsOpen }) {
 
         setButtonIsDisabled(true)
 
-        const res = await getData(`http://localhost:8080/api/reviews/check-password/${userPasswordGuess}`)
+        const res = await getData(`http://localhost:8080/api/auth/check-password/${userPasswordGuess}`)
 
         if (res.passwordMatches) {
             tries.current = 1
