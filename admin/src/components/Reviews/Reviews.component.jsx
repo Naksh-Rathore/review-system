@@ -10,7 +10,7 @@ function Review({ username, rating, comment, id, setReviews }) {
 
     const deleteReview = async () => {
         setIsDeleteBtnVisible(false)
-        await deleteData("http://localhost:8080/api/reviews", id)
+        await deleteData("https://review-system-ll2s.onrender.com/api/reviews", id)
         setReviews(r => r.filter(review => review._id !== id))
     }
 

@@ -26,8 +26,8 @@ function App() {
     
   useEffect(() => {
       const fetchAndLog = async () => {
-      const reviewRes = await getData(`http://localhost:8080/api/reviews/paginate/${page}/${reviewLimit}`) 
-      const avgRating = await getData("http://localhost:8080/api/reviews/average")
+      const reviewRes = await getData(`https://review-system-ll2s.onrender.com//api/reviews/paginate/${page}/${reviewLimit}`) 
+      const avgRating = await getData("https://review-system-ll2s.onrender.com//api/reviews/average")
       
       if (reviewRes) {
         setAvgImage(ratingToImage(avgRating.averageRating))
