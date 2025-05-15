@@ -50,7 +50,7 @@ function LoginForm({ setModalIsOpen }) {
 
         setButtonIsDisabled(true)
 
-        const res = await getData(`http://localhost:8080/api/auth/check-password/${userPasswordGuess}`)
+        const res = await getData(`https://review-system-ll2s.onrender.com/api/auth/check-password/${userPasswordGuess}`)
 
         if (res.passwordMatches) {
             tries.current = 1
