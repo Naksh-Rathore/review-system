@@ -32,6 +32,6 @@ export async function createReview(setAvgImage, setModalIsOpen, username, rating
       const updatedReviews = [newReview, ...reviews]
       setReviews(updatedReviews)  
 
-      await postReview("http://localhost:8080/api/reviews", newReview)
+      await postReview("https://review-system-ll2s.onrender.com/api/reviews", newReview)
     }
   }
