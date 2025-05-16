@@ -7,13 +7,24 @@ That's why this project has many real-world applications.
 
 ![MERN Stack](https://images.prismic.io/loco-blogs/79328284-f97b-489f-924c-eb3b17e34b56_image2.png?auto=compress%2Cformat&rect=0%2C0%2C1999%2C1124&w=3840&fit=max)<br />
 
+## URLs
+URLs for all my pages:
+- [User Page](https://review-system-naksh-rathore.netlify.app)
+- [Admin Page](https://review-system-admin-naksh-rathore.netlify.app)
+
 ## How to use
 
 **Step 1 (Clone repository)**: `git clone https://github.com/Naksh-Rathore/review-system`<br />
 
 ### Backend Setup
 **Step 2 (Enter backend folder)**: `cd backend`<br /> 
-**Step 3: Add a .env file storing your MongoDB URI and port**. (ex. `MONGODB_URI="mongodb-url" PORT=3000`)<br />
+**Step 3: Add a .env file storing your MongoDB URI, port, and hashed admin password**.<br /> 
+```env
+MONGODB_URI="mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority"
+PORT=3000
+HASHED_ADMIN_PASSWORD="$2y$10$1Ywd9u.BoWG3bkZQ9L2Fnuc7LdURw4RuNFPtwyt6LZqNEZ3EvyQVm" # 123
+```
+
 **Step 4 (Add dependencies)**: `npm install`<br />
 **Step 5 (run server.js)**: `node server.js` or for Nodemon run `npm run dev`<br />
 **Step 6**: Test with Postman, Insomnia, or more!<br />
@@ -26,5 +37,5 @@ That's why this project has many real-world applications.
 
 ## Tips
 - Make sure MongoDB is running and accessible.
-- Both the frontend and backend should be running simultaneously for the app to work fully.
+- Both the frontend and backend should be running simultaneously for the app to work fully if you are running it locally. 
 - Feel free to fork the repository and contribute!
