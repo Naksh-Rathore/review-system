@@ -7,7 +7,7 @@ That's why this project has many real-world applications.
 
 ![MERN Stack](https://images.prismic.io/loco-blogs/79328284-f97b-489f-924c-eb3b17e34b56_image2.png?auto=compress%2Cformat&rect=0%2C0%2C1999%2C1124&w=3840&fit=max)<br />
 
-Also, this application teaches a lot about how the **frontend and backend work together**, useful for both **pen testing and development**. When you are pen testing a website, you *need* to know how the website is made and connected all together. However, **hacking into any of the production websites is strictly prohibited and is not legal since I am not giving permission for anything hacking-related**. If you do want to **ethically hack** into a vulnerable web app, consider using **OWASP Juice Shop**, **DVWA**, or recreate my web app with **your own database**. Read the `LICENSE` file for more specifications
+Also, this application teaches a lot about how the **frontend and backend work together**, useful for both **pen testing and development**. When you are pen testing a website, you *need* to know how the website is made and connected all together. However, **hacking into any of the production websites is strictly prohibited and is not legal since I am not giving permission for anything hacking-related**. If you do want to **ethically hack** into a vulnerable web app, consider using **OWASP Juice Shop**, **DVWA**, or **locally recreate this web app with your own database**. Read the `LICENSE` file for more specifications
 
 ## URLs
 URLs for all my pages:
